@@ -1,28 +1,55 @@
-// TODO: write your code here
-import sum from './basic';
-
 document.addEventListener('DOMContentLoaded', () => {
-  const arrResult = [];
-
-  const xhr = new XMLHttpRequest();
-
-  xhr.onload = function () {
-    const result = xhr.response;
-    arrResult.push(result);
-    console.log(arrResult)
+  
+  const newTicket = {
+    name: null,
+    description: null,
+    status: false
   }
 
-  xhr.open('GET', 'http://localhost:7070/?method=allTickets');
+  async function sendingRequest(url, meth, data) {
+    const website = `http://localhost:7070/?method=${url}`;
 
-  xhr.send();
+    let websiteRequest;
+    
+    if(meth === 'POST'){
+      websiteRequest = fetch(website,{
+        method: meth,
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        }
+      }).then(successResponse => {
+        console.log(successResponse)
+        if(successResponse.status >= 200 && successResponse.status < 300){
+          try{
+            return successResponse.json();
+          }catch(e){
+            console.error(e)
+          }
+        }
+      })
+    };
 
-  xhr.open('GET', 'http://localhost:7070/?method=ticketById&id=2');
+    if(meth === 'GET') {
+      websiteRequest = fetch(website,{
+        method: meth
+      }).then(successResponse => {
+        if(successResponse.status >= 200 && successResponse.status < 300){
+          try{
+            return successResponse.json();
+          }catch(e){
+            console.error(e)
+          }
+        }
+      })
+    }
 
-  xhr.send();
+    let result = await Promise.resolve(websiteRequest);
+    console.log(result)
+  }
 
-  xhr.open('POST', 'http://localhost:7070/?method=createTicket');
+  sendingRequest('allTickets', 'GET');
+  sendingRequest('ticketById&id=1', 'GET');
+  sendingRequest('createTicket', 'POST', newTicket);
 
-  xhr.send()
-
-  
 });
