@@ -1,9 +1,40 @@
-// для тестирования моков ??
+export default async function sendingRequest(url, meth, data) {
+  const website = `http://localhost:7070/?method=${url}`;
 
-export function httpGet(url) {
-  throw new Error(url);
-}
+  let websiteRequest;
 
-export function httpPost(url) {
-  throw new Error(url);
+  if (meth === 'POST') {
+    websiteRequest = fetch(website, {
+      method: meth,
+      body: data,
+    }).then((successResponse) => {
+      console.log(successResponse);
+      if (successResponse.status >= 200 && successResponse.status < 300) {
+        try {
+          return successResponse.json();
+        } catch (e) {
+          console.error(e);
+        }
+      }
+      return false;
+    });
+  }
+
+  if (meth === 'GET') {
+    websiteRequest = fetch(website, {
+      method: meth,
+    }).then((successResponse) => {
+      if (successResponse.status >= 200 && successResponse.status < 300) {
+        try {
+          return successResponse.json();
+        } catch (e) {
+          console.error(e);
+        }
+      }
+      return false;
+    });
+  }
+
+  const result = await Promise.resolve(websiteRequest);
+  console.log(result);
 }

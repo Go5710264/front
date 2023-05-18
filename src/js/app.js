@@ -1,55 +1,19 @@
+import NewTask from '../components/NewTask';
+
 document.addEventListener('DOMContentLoaded', () => {
-  
-  const newTicket = {
-    name: null,
-    description: null,
-    status: false
-  }
+  const wrapperFormAddTicket = document.querySelector('.wrapper-form-add-ticket');
+  const main = document.querySelector('.content-wrapper');
+  const inputField = document.querySelector('.input-name-task');
+  const buttonAddTask = document.querySelector('.button-add-task');
 
-  async function sendingRequest(url, meth, data) {
-    const website = `http://localhost:7070/?method=${url}`;
+  buttonAddTask.addEventListener('click', (e) => {
+    e.preventDefault();
+    main.style.opacity = '0.4';
+    const preliminaryTaskCreation = new NewTask(wrapperFormAddTicket, inputField);
+    preliminaryTaskCreation.clickAddTaskButton();
+  });
 
-    let websiteRequest;
-    
-    if(meth === 'POST'){
-      websiteRequest = fetch(website,{
-        method: meth,
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        }
-      }).then(successResponse => {
-        console.log(successResponse)
-        if(successResponse.status >= 200 && successResponse.status < 300){
-          try{
-            return successResponse.json();
-          }catch(e){
-            console.error(e)
-          }
-        }
-      })
-    };
-
-    if(meth === 'GET') {
-      websiteRequest = fetch(website,{
-        method: meth
-      }).then(successResponse => {
-        if(successResponse.status >= 200 && successResponse.status < 300){
-          try{
-            return successResponse.json();
-          }catch(e){
-            console.error(e)
-          }
-        }
-      })
-    }
-
-    let result = await Promise.resolve(websiteRequest);
-    console.log(result)
-  }
-
-  sendingRequest('allTickets', 'GET');
-  sendingRequest('ticketById&id=1', 'GET');
-  sendingRequest('createTicket', 'POST', newTicket);
-
+  // sendingRequest('allTickets', 'GET');
+  // sendingRequest('ticketById&id=1', 'GET');
+  // sendingRequest('createTicket', 'POST', newTicket);
 });

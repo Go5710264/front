@@ -7,22 +7,59 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <form name="add-ticket" class="form-add-ticket" method="post" action="">
-        <h2>Добавить тикет</h2>
 
-        <label for="short-description">Краткое описание</label>
-        <input type="text" id="short-description" placeholder="Введите краткое описание тикета">
-
-        <label for="ditailes-description">Подробное описание</label>
-        <input type="text" id="ditailes-description" placeholder="Введите подробное описание тикета">
-
-        <div>
-            <button>Ok</button>
-            <button>Отмена</button>
+    <main class="content-wrapper">
+        <div class="card">
+            <div class="tasks" id="tasks">
+                <form class="tasks__control" id="tasks__form">
+                    <input type="text" class="input-name-task" id="task__input" placeholder="Введите название новой задачи">
+                    <button class="button-add-task" id="tasks__add">Добавить</button>
+                </form>
+                <div class="tasks__list" id="tasks__list">
+                </div>
+            </div>
         </div>
+
+         <section class="task">
+
+            <div class="short-task">
+
+                <div class="wrapper-checkbox-title-task">
+                    <input type="checkbox">
+                    <h2 class="task-title">Поменять краску в принтере</h2>
+                </div>
+
+                <div class="wrapper-icon">
+                    <a href="#" class="task-icon task-editing">&#128393;</a>
+                    <a href="#" class="task-icon task-remove">&times;</a>
+                </div>
+
+            </div>
+            
+            <div class="expended-task">
+                <p class="task-condition">Лазерный принтер HP Laser 107a. Офис 176, 2 этаж </p>
+            </div>
+
+         </section>
+    </main>
+    
+    <div class="wrapper-form-add-ticket display-hide">
+        <h2>Добавить тикет</h2>
+        <form class="form-add-ticket" method="POST" action="http://localhost:7070">
+
+            <label for="short-description">Краткое описание</label>
+            <input name="short" class="short-description" placeholder="Введите краткое описание тикета">
+
+            <label for="ditailes-description">Подробное описание</label>
+            <input name="ditailes" class="ditailes-description" placeholder="Введите подробное описание тикета">
+
+            <div class="button-area">
+                <button class="button-add-new-task">Ok</button>
+                <button class="button-canceling-task-creation">Отмена</button>
+            </div>
         
     </form>
+    </div>
     
 </body>
 </html>

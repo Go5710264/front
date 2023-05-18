@@ -1,7 +1,16 @@
-/* body, ul {
-    margin: 0;
-    padding: 0;
-} */
+@font-face {
+    font-family: "OpenSans-normal";
+    font-style: normal;
+    font-weight: 300;
+    src: url("../../fonts/OpenSans-VariableFont_wdth\,wght.ttf");
+}
+
+@font-face {
+    font-family: "OpenSans-italic";
+    font-style: italic;
+    font-weight: 300;
+    src: url("../../fonts/OpenSans-Italic-VariableFont_wdth\,wght.ttf");
+}
 
 body{
     display: flex;
@@ -10,10 +19,141 @@ body{
     position: relative;
 }
 
+.wrapper-form-add-ticket{
+  position: absolute;
+}
+
 .form-add-ticket{
     display: flex;
     flex-direction: column;
 
-    position: absolute;
     width: 400px;
+    background-color: #e2e2e2;
+}
+
+.display-hide{
+    display: none;
+}
+
+/* body, ul {
+    margin: 0;
+    padding: 0;
+} */
+
+button {
+  margin: 0 !important;
+}
+
+.content-wrapper{
+    width: 600px;
+}
+
+.card {
+  width: 600px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.tasks__control {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-name-task {
+  display: block;
+  width: 80%;
+  padding: 10px 20px;
+  font-family: Golos, Arial, sans-serif;
+  border: 1px solid #e2e2e2;
+  box-sizing: border-box;
+}
+
+.button-add-task {
+  font-family: Golos, Arial, sans-serif;
+  color: #fff;
+  background-color: #06f;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  outline: none;
+  padding: 8px 12px;
+  text-align: center;
+  transition: 0.3s ease;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  font-weight: 500;
+  box-shadow: none;
+}
+
+.task {
+  /* display: flex;
+  justify-content: space-between; */
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+}
+
+.short-task{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 15px;
+}
+
+.wrapper-checkbox-title-task{
+    display: flex;
+}
+
+.task-title {
+    margin: 0;
+    margin-left: 5px;
+
+    font-family: "OpenSans-normal";
+    font-weight: normal;
+}
+
+.expended-task{
+
+}
+
+.task-condition{
+    margin: 0;
+    font-family: "OpenSans-italic";
+    font-size: 1em;
+}
+
+.tasks__list {
+  margin-top: 10px;
+}
+
+.wrapper-icon{
+    width: 60px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-icon{
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.task-editing{
+    font-size: 1.8em;
+
+}
+
+.task-remove {
+    font-size: 3em;
 }

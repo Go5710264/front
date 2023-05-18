@@ -40,6 +40,11 @@ module.exports = {
         type: 'asset/resource', // т.е. вышележащие файлы нужно поместить в папку ресурсы asset
       // Привило загрузки asset/resource работает в паре с параметром output assetModuleFilename
       },
+      {
+        test: /\.(ttf)$/i,
+        type: 'asset/resource', // т.е. вышележащие файлы нужно поместить в папку ресурсы asset
+      // Привило загрузки asset/resource работает в паре с параметром output assetModuleFilename
+      },
     ],
   },
   plugins: [
