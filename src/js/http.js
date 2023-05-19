@@ -8,7 +8,6 @@ export default async function sendingRequest(url, meth, data) {
       method: meth,
       body: data,
     }).then((successResponse) => {
-      console.log(successResponse);
       if (successResponse.status >= 200 && successResponse.status < 300) {
         try {
           return successResponse.json();
@@ -35,6 +34,9 @@ export default async function sendingRequest(url, meth, data) {
     });
   }
 
-  const result = await Promise.resolve(websiteRequest);
-  console.log(result);
+  // const result = await Promise.resolve(websiteRequest);
+  // console.log(result);
+  // return result;
+
+  return await Promise.resolve(websiteRequest);
 }

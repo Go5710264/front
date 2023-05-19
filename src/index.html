@@ -20,27 +20,32 @@
             </div>
         </div>
 
-         <section class="task">
+        <div class="board-task">
 
-            <div class="short-task">
+            <section class="task">
 
-                <div class="wrapper-checkbox-title-task">
-                    <input type="checkbox">
-                    <h2 class="task-title">Поменять краску в принтере</h2>
+                <div class="short-task">
+    
+                    <div class="wrapper-checkbox-title-task">
+                        <input type="checkbox" class="checkbox">
+                        <h2 class="task-title">Поменять краску в принтере</h2>
+                    </div>
+    
+                    <div class="wrapper-icon">
+                        <a href="#" class="task-icon task-editing">&#128393;</a>
+                        <a href="#" class="task-icon task-remove">&times;</a>
+                    </div>
+    
                 </div>
-
-                <div class="wrapper-icon">
-                    <a href="#" class="task-icon task-editing">&#128393;</a>
-                    <a href="#" class="task-icon task-remove">&times;</a>
+                
+                <div class="expended-task">
+                    <p class="task-condition">Лазерный принтер HP Laser 107a. Офис 176, 2 этаж </p>
                 </div>
+    
+             </section>
 
-            </div>
-            
-            <div class="expended-task">
-                <p class="task-condition">Лазерный принтер HP Laser 107a. Офис 176, 2 этаж </p>
-            </div>
-
-         </section>
+        </div>
+         
     </main>
     
     <div class="wrapper-form-add-ticket display-hide">
@@ -48,10 +53,10 @@
         <form class="form-add-ticket" method="POST" action="http://localhost:7070">
 
             <label for="short-description">Краткое описание</label>
-            <input name="short" class="short-description" placeholder="Введите краткое описание тикета">
+            <input name="name" class="short-description" placeholder="Введите краткое описание тикета">
 
             <label for="ditailes-description">Подробное описание</label>
-            <input name="ditailes" class="ditailes-description" placeholder="Введите подробное описание тикета">
+            <input name="description" class="ditailes-description" placeholder="Введите подробное описание тикета">
 
             <div class="button-area">
                 <button class="button-add-new-task">Ok</button>
