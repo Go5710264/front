@@ -1,15 +1,17 @@
+import sendingRequest from "../js/http";
+
 export default class HelpDask{
     constructor(task){
-        // this.arrayTasks = [];
         this.task = task;
         this.newTask;
+        this.boardTask = document.querySelector('.board-task');
+
     }
 
     addShortTask() {
-        const boardTask = document.querySelector('.board-task');
+        this.newTask = this.boardTask.querySelector('.task').cloneNode(true);
 
-        this.newTask = document.querySelector('.task').cloneNode(true);
-        console.log(this.newTask)
+        this.newTask.setAttribute('id', this.task.id);
 
         this.newTask.querySelector('.task-title').textContent = this.task.name;
 
@@ -18,16 +20,21 @@ export default class HelpDask{
             checkbox.checked = true;
         }
 
-        boardTask.appendChild(this.newTask) 
-
+        this.boardTask.appendChild(this.newTask) 
     }
 
     deleteTask(){
-        console.log(this.newTask)
         const iconRemove = this.newTask.querySelector('.task-remove');
         
         iconRemove.addEventListener('click', () => {
-            console.log('hi')
+
+            let id = iconRemove.closest('.task');
+            id = id.getAttribute('id');
+
+            sendingRequest(id, 'DELETE');
+
+            this.newTask.parentElement.removeChild(this.newTask)
+
         })
     }
 }

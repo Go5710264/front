@@ -34,6 +34,24 @@ export default async function sendingRequest(url, meth, data) {
     });
   }
 
+  if (meth === 'DELETE') {
+    websiteRequest = fetch(website, {
+      method: meth,
+      headers:{
+        'Content-type': 'application/x-www-form-urlencoded'
+      },
+    }).then((successResponse) => {
+      if (successResponse.status >= 200 && successResponse.status < 300) {
+        try {
+          return successResponse.text();
+        } catch (e) {
+          console.error(e);
+        }
+      }
+      return false;
+    });
+  }
+
   // const result = await Promise.resolve(websiteRequest);
   // console.log(result);
   // return result;
