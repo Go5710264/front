@@ -30,6 +30,7 @@ export default class WindowAddNewTask {
 
             serverResponse.then(
                 resolve => {
+                    console.log(resolve)
                     const taskCard = new HelpDask(resolve);
                     taskCard.addShortTask();
                     taskCard.deleteTask();
