@@ -19,11 +19,11 @@ body{
     position: relative;
 }
 
-.wrapper-form-add-ticket{
+.wrapper-form-add-ticket, .wrapper-form-editing-ticket {
   position: absolute;
 }
 
-.form-add-ticket{
+.form-add-ticket, .form-editing-ticket{
     display: flex;
     flex-direction: column;
 

@@ -22,7 +22,7 @@
 
         <div class="board-task">
 
-            <section class="task">
+            <section class="task display-hide">
 
                 <div class="short-task">
     
@@ -36,10 +36,6 @@
                         <a href="#" class="task-icon task-remove">&times;</a>
                     </div>
     
-                </div>
-                
-                <div class="expended-task">
-                    <p class="task-condition">Лазерный принтер HP Laser 107a. Офис 176, 2 этаж </p>
                 </div>
     
              </section>
@@ -61,6 +57,24 @@
             <div class="button-area">
                 <button class="button-add-new-task">Ok</button>
                 <button class="button-canceling-task-creation">Отмена</button>
+            </div>
+        
+    </form>
+    </div>
+
+    <div class="wrapper-form-editing-ticket display-hide">
+        <h2>Редактировать тикет</h2>
+        <form class="form-editing-ticket" method="POST" action="http://localhost:7070">
+
+            <label for="short-description">Краткое описание</label>
+            <input name="name" class="short-description" placeholder="Введите краткое описание тикета">
+
+            <label for="ditailes-description">Подробное описание</label>
+            <input name="description" class="ditailes-description" placeholder="Введите подробное описание тикета">
+
+            <div class="button-area">
+                <button type="submit" class="button-editing-task">OK</button>
+                <button type="reset" class="button-canceling-task">Отмена</button>
             </div>
         
     </form>

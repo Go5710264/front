@@ -37,8 +37,8 @@ export default async function sendingRequest(url, meth, data) {
   if (meth === 'DELETE') {
     websiteRequest = fetch(website, {
       method: meth,
-      headers:{
-        'Content-type': 'application/x-www-form-urlencoded'
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
       },
     }).then((successResponse) => {
       if (successResponse.status >= 200 && successResponse.status < 300) {
@@ -52,9 +52,5 @@ export default async function sendingRequest(url, meth, data) {
     });
   }
 
-  // const result = await Promise.resolve(websiteRequest);
-  // console.log(result);
-  // return result;
-
-  return await Promise.resolve(websiteRequest);
+  return Promise.resolve(websiteRequest);
 }

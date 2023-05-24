@@ -37,13 +37,11 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|cur|gif)$/i,
-        type: 'asset/resource', // т.е. вышележащие файлы нужно поместить в папку ресурсы asset
-      // Привило загрузки asset/resource работает в паре с параметром output assetModuleFilename
+        type: 'asset/resource',
       },
       {
         test: /\.(ttf)$/i,
-        type: 'asset/resource', // т.е. вышележащие файлы нужно поместить в папку ресурсы asset
-      // Привило загрузки asset/resource работает в паре с параметром output assetModuleFilename
+        type: 'asset/resource',
       },
     ],
   },
