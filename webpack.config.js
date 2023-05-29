@@ -10,7 +10,7 @@ module.exports = {
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: '[name][ext]', // переместить в корневую папку
+    assetModuleFilename: 'fonts/[name][ext]', // переместить в корневую папку
   },
   module: {
     rules: [
@@ -40,8 +40,14 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.(ttf)$/i,
-        type: 'asset/resource',
+        test: /\.(ttf)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'asset/resource',
+          },
+        },
       },
     ],
   },

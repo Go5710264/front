@@ -111,7 +111,6 @@ export default class HelpDask {
   checked() {
     this.checkbox.addEventListener('click', () => {
       this.task.status = this.checkbox.checked;
-      console.log(this.task);
 
       const body = JSON.stringify(this.task);
 
